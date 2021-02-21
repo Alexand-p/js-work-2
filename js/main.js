@@ -1,46 +1,25 @@
 console.log('Sample JavaScript #2 HW #16');
 
-/*
- * #1
- *
- * Создайте объект userObj, описывающий человека.
- *
- * Следующие поля обязательны:
- * firstName – любое имя, строка
- * lastName – любая фамилия, строка
- * age – любой возраст, число
- */
+// 1 и 2
 
-/*
- * #2
- *
- * Для объекта из п.1 создайте метод fullName, который будет возвращать полное имя,
- * состоящее из firstName и lastName, склеенных в строку через пробел.
- *
- * Например:
- * userObj.firstName ← 'Имя
- * userObj.lastName ← Фамилия'
- * userObj.fullName() → 'Имя Фамилия'.
- */
+ var userObj = {
+   firstName: 'Alex',
+   lastName: 'Sidorov',
+   age: 25 ,
+   fullName() {
+     return userObj.firstName + ' ' + userObj.lastName;
+   }
+ }
+ console.log(userObj)
+ console.log(userObj.fullName())
+ 
+//  3
 
-/*
- * #3
- *
- * Дана функция defUpperStr('My text'), которая возвращает текст, преобразованный в верхний регистр, т.е:
- * defUpperStr('My text') → 'MY TEXT'.
- *
- * Если функция вызывается без параметра defUpperStr(), она не должна возвращать undefined,
- * в этом случае требуется вернуть строку текста по умолчанию в верхнем регистре, т.е:
- * defUpperStr() → 'DEFAULT TEXT'.
- *
- * При выполнении задачи не используйте оператор if, требуется решение с логическим оператором ||.
- */
-
-/* eslint-disable capitalized-comments */
-// console.log(defUpperStr('My text')); // MY TEXT
-
-// console.log(defUpperStr()); // DEFAULT TEXT
-
+ function defUpperStr(def){
+   return (def|| 'Default text').toUpperCase() ;
+ }
+ console.log(defUpperStr('My text'));
+ console.log(defUpperStr());
 /*
  * #4
  *
@@ -63,6 +42,9 @@ console.log('Sample JavaScript #2 HW #16');
 // console.log(evenFn(15)); // [2, 4, 6, 8, 10, 12, 14]
 
 // console.log(evenFn(20)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+function evenFn(n){
+  
+}
 
 /*
  * #5
