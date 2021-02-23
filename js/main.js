@@ -20,31 +20,15 @@ console.log('Sample JavaScript #2 HW #16');
  }
  console.log(defUpperStr('My text'));
  console.log(defUpperStr());
-/*
- * #4
- *
- * Создайте функцию evenFn(n), которая принимает параметром число – количество итераций цикла,
- * т.е. for 0..n. Функция должна вернуть массив, состоящий только из четных значений, генерируемых в цикле.
- *
- * Причем:
- * 0 не должен попадать в результирующий массив
- * цикл должен работать до n включительно
- * разрешен только оператор for
- *
- * Например:
- * evenFn(10) → [2, 4, 6, 8, 10]
- * evenFn(15) → [2, 4, 6, 8, 10, 12, 14]
- * evenFn(20) → [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
- */
 
-// console.log(evenFn(10)); // [2, 4, 6, 8, 10]
-
-// console.log(evenFn(15)); // [2, 4, 6, 8, 10, 12, 14]
-
-// console.log(evenFn(20)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 function evenFn(n){
-  
+  var arg = [];
+  for (var i = 1; i <= n; i++) if (i % 2 === 0) arg.push(i)
+  return arg;
 }
+console.log(evenFn(10)); 
+console.log(evenFn(15)); 
+console.log(evenFn(20));
 
 /*
  * #5
@@ -60,18 +44,35 @@ function evenFn(n){
  *
  * В реализации функции обязательно должны быть использованы операторы switch / case / default.
  */
+ function weekFn(n){
+   var day ='';
+    
+   switch (n){
 
-// console.log(weekFn(1)); // 'Понедельник'
-
-// console.log(weekFn(3)); // 'Среда'
-
-// console.log(weekFn(7)); // 'Воскресенье'
-
-// console.log(weekFn(9)); // null
-
-// console.log(weekFn(1.5)); // null
-
-// console.log(weekFn('2')); // null
+     case 1: day = 'Пондельник ';
+     break
+     case 2: day = 'Вторник';
+     break;
+     case 3: day = 'Среда'
+     break;
+     case 4: day = 'Четверг';
+      break;
+     case 5: day = 'Пятница';
+      break;
+     case 6: day = 'Суббота';
+      break;
+     case 7: day = 'Воскресенье';
+      break;
+      default: day = null;
+   }
+   return day
+ }
+console.log(weekFn(1)); // 'Понедельник'
+console.log(weekFn(3)); // 'Среда'
+console.log(weekFn(7)); // 'Воскресенье'
+console.log(weekFn(9)); // null
+console.log(weekFn(1.5)); // null
+console.log(weekFn('2')); // null
 
 /*
  * #6
@@ -90,22 +91,69 @@ function evenFn(n){
  * При выполнении задания допускается использовать только тернарный оператор ?.
  * Использование операторов if, switch – запрещено.
  */
+//   if (age > 0){
+//     str=null;
+//   } else (age > 24){
+//     str='детский возраст'
 
-// console.log('-1 :', ageClassification(-1)); // -1 : null
+//   } else (age > 44){
+//     str='молодой возраст'
 
-// console.log('5 :', ageClassification(5)); // 5 : детский возраст
+//   } else (age > 65){
+//     str='средний возраст';
 
-// console.log('34 :', ageClassification(34)); // 34 : молодой возраст
+//   }else (age > 75){
+//     str='пожилой человек';
 
-// console.log('50 :', ageClassification(50)); // 50 : средний возраст
+//   }else (age > 90){
+//     str= 'старчиский возраст';
 
-// console.log('65.1 :', ageClassification(65.1)); // 65.1 : пожилой возраст
+//   }else (age > 122){
+//     str='долгожители';
 
-// console.log('80 :', ageClassification(80)); // 80 : старческий возраст
+//   }else (age > 122){
+//     str=null;
+//   }
 
-// console.log('110 :', ageClassification(110)); // 110 : долгожители
 
-// console.log('130 :', ageClassification(130)); // 130 : null
+//   str='';
+// str = n > 24 ? str='детский возраст': n > 44  ? str='молодой возраст' : n > 65  ? str='средний возраст' : n > 75  ? str='пожилой человек' : n > 90  ? str= 'старчиский возраст' : n <= 122 ? str='долгожители' : n > 123  ? str=null 
+// }
+function ageClassification(n) {
+  return n > 0
+    ? n> 24
+      ? n> 44
+        ? n > 65
+          ? n > 75
+            ? n> 90
+              ? n> 122
+                ? null
+                : 'долгожители'
+              : 'старческий возраст'
+            : 'пожилой возраст'
+          : 'средний возраст'
+        : 'молодой возраст'
+      : 'детский возраст'
+    : null;
+}
+console.log('-1 :', ageClassification(-1)); // -1 : null
+
+console.log('5 :', ageClassification(5)); // 5 : детский возраст
+
+console.log('34 :', ageClassification(34)); // 34 : молодой возраст
+
+console.log('50 :', ageClassification(50)); // 50 : средний возраст
+
+console.log('65.1 :', ageClassification(65.1)); // 65.1 : пожилой возраст
+
+console.log('80 :', ageClassification(80)); // 80 : старческий возраст
+
+console.log('110 :', ageClassification(110)); // 110 : долгожители
+
+console.log('130 :', ageClassification(130)); // 130 : null
+
+
+
 
 /*
  * Блок тестирования:
@@ -142,12 +190,17 @@ function evenFn(n){
  * oddFn(15) → [1, 3, 5, 7, 9, 11, 13, 15]
  * oddFn(20) → [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  */
+function oddFn(n){
+ var arg = [];
+ var i = 0;
+ while (i++ < n ) if (i % 2 !== 0) arg.push(i)
+  return arg;
+  }
+console.log(oddFn(10)); // [1, 3, 5, 7, 9]
 
-// console.log(oddFn(10)); // [1, 3, 5, 7, 9]
+console.log(oddFn(15)); // [1, 3, 5, 7, 9, 11, 13, 15]
 
-// console.log(oddFn(15)); // [1, 3, 5, 7, 9, 11, 13, 15]
-
-// console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 
 /*
  * #8
