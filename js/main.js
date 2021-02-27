@@ -44,35 +44,45 @@ console.log(evenFn(20));
  *
  * В реализации функции обязательно должны быть использованы операторы switch / case / default.
  */
- function weekFn(n){
-   var day ='';
-    
-   switch (n){
+function weekFn(cond) {
+  var str = '';
 
-     case 1: day = 'Пондельник ';
-     break
-     case 2: day = 'Вторник';
-     break;
-     case 3: day = 'Среда'
-     break;
-     case 4: day = 'Четверг';
+  switch (cond) {
+    case 1:
+      str = 'Понедельник';
       break;
-     case 5: day = 'Пятница';
+    case 2:
+      str = 'Вторник';
       break;
-     case 6: day = 'Суббота';
+    case 3:
+      str = 'Среда';
       break;
-     case 7: day = 'Воскресенье';
+    case 4:
+      str = 'Четверг';
       break;
-      default: day = null;
-   }
-   return day
- }
+    case 5:
+      str = 'Пятница';
+      break;
+    case 6:
+      str = 'Суббота';
+      break;
+    case 7:
+      str = 'Воскресенье';
+      break;
+    default:
+      str = null;
+  }
+
+  return str;
+}
+
 console.log(weekFn(1)); // 'Понедельник'
 console.log(weekFn(3)); // 'Среда'
 console.log(weekFn(7)); // 'Воскресенье'
 console.log(weekFn(9)); // null
 console.log(weekFn(1.5)); // null
 console.log(weekFn('2')); // null
+
 
 /*
  * #6
@@ -220,11 +230,35 @@ console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  * для возведения в степень и получения произвольного значения можете воспользоваться методами объекта Math.
  */
 
+// funcRandom(a, b) – вычисляет и возвращает произвольное целое число в диапазоне между a и b включительно.
+
+// funcPow(a, b) – вычисляет и возвращает результат возведения числа a в степень b.
+
+// funcAdd(a, b) – вычисляет и возвращает сумму двух чисел a и b.
+function mainFunc(a, b, cb) {
+  if (cb && typeof cb === 'function') return cb(a, b);
+
+  return false;
+}
+
+/*
+ * реализуйте следующие функции, которые будут осуществлять механизм callback в основной функции,
+ * возвращая ей результат собственного вычисления...
+ * для возведения в степень и получения произвольного значения можете воспользоваться методами объекта Math.
+ */
+
 // cbRandom(a, b) – вычисляет и возвращает произвольное целое число в диапазоне между a и b включительно.
-
+function cbRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 // cbPow(a, b) – вычисляет и возвращает результат возведения числа a в степень b.
-
+function cbPow(num, pow) {
+  return Math.pow(num, pow);
+}
 // cbAdd(a, b) – вычисляет и возвращает сумму двух чисел a и b.
+function cbAdd(a, b) {
+  return a + b;
+}
 
 /*
  * mainFunc() должна возвращать результат работы переданной ей возвратной функции, например:
@@ -234,11 +268,7 @@ console.log(oddFn(20)); // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  * mainFunc(2, 5, cbAdd) → 7
  * mainFunc(2, 5, 'not a func') → false
  */
-
-// console.log(mainFunc(2, 5, cbRandom)); // целые числа в диапазоне 2..5
-
-// console.log(mainFunc(2, 5, cbPow)); // 32
-
-// console.log(mainFunc(2, 5, cbAdd)); // 7
-
-// console.log(mainFunc(2, 5, 'not a func')); // false
+console.log(mainFunc(2, 5, cbRandom)); // целые числа в диапазоне 2..5
+console.log(mainFunc(2, 5, cbPow)); // 32
+console.log(mainFunc(2, 5, cbAdd)); // 7
+console.log(mainFunc(2, 5, 'not a func')); // false
